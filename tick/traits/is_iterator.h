@@ -46,8 +46,8 @@ struct iterator_traits;
 
 template<class T>
 struct iterator_traits<T, TICK_CLASS_REQUIRES(
-    std::is_pointer<typename bare<T>::type>() or
-    detail::has_iterator_traits<T>() 
+    std::is_pointer<typename bare<T>::type>::value or
+    detail::has_iterator_traits<T>::value
 )>
 : std::iterator_traits<typename bare<T>::type>
 {};
